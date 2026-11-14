@@ -1,0 +1,13 @@
+{
+  "currency": "INR",
+  "month": "sample month",
+  "monthly_income": 5000,
+  "savings_target": 500,
+  "categories": {
+    "food": {"limit": 1800, "spent": 1200},
+    "transport": {"limit": 700, "spent": 450},
+    "fun": {"limit": 800, "spent": 650},
+    "other": {"limit": 1200, "spent": 300}
+  }
+}
+{"currency":"INR","month":"sample month","monthly_income":5000,"savings_target":500,"categories":{"food":{"limit":1800,"spent":1200},"transport":{"limit":700,"spent":450},"fun":{"limit":800,"spent":650},"other":{"limit":1200,"spent":300}}}
