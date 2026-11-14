@@ -1,3 +1,41 @@
+# Spend Check agent (fork of minimal-agent-core)
+
+A small tool-calling AI agent that answers **"Can I afford this?"** for a student on a monthly budget.
+It is a learning prototype, not a production system.
+
+**Credit:** this is a fork of [codycollier/minimal-agent-core](https://github.com/codycollier/minimal-agent-core)
+(MIT licence, Copyright (c) 2025 Cody Collier). The agent loop in `agent/mincore.py` is the original author's work.
+
+## What I added
+- `agent/spendcheck_tools.py`: three budget tools (`get_budget_summary`, `get_category_status`, `can_i_afford`). The maths is plain Python, so the LLM never does arithmetic.
+- `agent/agent-spendcheck.py`: the agent with a friendly, never-scolding system prompt.
+- `data/sample_budget.json`: sample data for a student with Rs 5,000 monthly pocket money.
+- `tests/test_spendcheck.py`: offline tests (no API key needed), including the agent loop run against a fake model.
+
+The idea comes from MADS, a personal finance app I am building.
+
+## Run it
+```
+pip install -r requirements.txt
+cp .env.example .env        # add your OpenAI API key
+python agent/agent-spendcheck.py
+```
+Try: "Can I afford Rs 800 on food?" or "How much do I have left this month?"
+
+## Test it (no API key needed)
+```
+python -m unittest discover -s tests -v
+```
+
+## Limitations
+- Uses fixed sample data, not real transactions.
+- No memory beyond the conversation, no evaluation suite yet, and minimal error handling.
+- OpenAI Responses API only.
+
+---
+
+# Original README (minimal-agent-core)
+
 # minimal-agent-core
 
 An illustration of the small inner core of a function calling agent
